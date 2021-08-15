@@ -53,7 +53,7 @@ $hash = $responseAsArray['hash'];
                                     <?php
                                     //$confirm = 1 (Transaction DONE!)
                                     //$used = 0 (Transaction Used 1 time on website)
-                                        if ($confirm = 1 && $used = 1)
+                                        if ($confirm == 1)
                                         {
                                             //Do any thing you want to do after payment
                                             echo '<h4 class="text-center mb-4">Transaction Confirmed!</h4>';
