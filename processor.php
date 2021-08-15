@@ -17,12 +17,13 @@ curl_close($ch);
 $responseAsArray = json_decode($response, true);
 $hash = $responseAsArray['data']['hash'];
 $msg = $responseAsArray['message'];
+$status = $responseAsArray['status'];
 
-if ($msg == "transaction created successfully")
+if ($status == 200)
 {
 header("Location: https://drtether.com/api/v1/pay/transaction/".$hash);
 }else{
-    echo $msg;
+    echo $response;
 }
 
 ?>
