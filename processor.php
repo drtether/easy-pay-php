@@ -1,8 +1,10 @@
 <?php
 $amount = $_POST['amount'];
 $post = [
+    //The same Merchant ID you recived from our website.
     'merchant' => '****merchant_id****',
-    'callback' => '****callback_url****',
+    //set callback.php file url as callback.
+    'callback' => '****https://domain.com/.../callback.php****',
     'amount'   => $amount,
 ];
 
