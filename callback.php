@@ -1,4 +1,5 @@
 <?php
+require './processor.php';
 $txnid = $_GET['txnid'];
 
 $ch = curl_init('https://drtether.com/api/v1/transaction/'.$txnid);
@@ -14,6 +15,7 @@ $confirm = $responseAsArray['confirmed'];
 $used = $responseAsArray['used'];
 $amount = $responseAsArray['amount'];
 $hash = $responseAsArray['hash'];
+$towallet = $responseAsArray['to'];
 
 ?>
 <!DOCTYPE html>
@@ -52,8 +54,10 @@ $hash = $responseAsArray['hash'];
                                     <center><img src="./images/logo-page.png" width="175" height="175"></center> 
                                     <?php
                                     //$confirm = 1 (Transaction DONE!)
-                                    //$used = 0 (Transaction Used 1 time on website)
-                                        if ($confirm == 1)
+                                    //$used = 0 (The transaction hash never used on the website)
+					//You can add below code to this 'IF' for cheching your wallet address in txn
+					// && $towallet == $trc20address
+                                        if ($confirm == 1 && $used == 0)
                                         {
                                             //Do any thing you want to do after payment
                                             echo '<h4 class="text-center mb-4">Transaction Confirmed!</h4>';
