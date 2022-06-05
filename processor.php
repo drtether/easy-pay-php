@@ -8,6 +8,10 @@ $post = [
     'amount'   => $amount,
 ];
 
+
+//YOUR Wallet Address
+$trc20address = "Your Wallet Address TRC20 that you were set on Dr.Tether"; 
+
 $ch = curl_init('https://drtether.com/api/v1/make/transaction');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
